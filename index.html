@@ -17,6 +17,17 @@
         </nav>
     </header>
 
+    <!-- used copilot to figure out how to intergrate this video
+     i learned that if i don't specify type the browser will load slower.
+     i also learned that if i didn't add the muted attribute then some browser could block my video from playing -->
+    <video id = "start-vid" autoplay loop muted>
+        <source src="../assets/starsmoving.mp4" type="video/mp4">
+    </video>
+
+    <video id = "loop-vid" loop muted>
+        <source src="../assets/starsmoving.mp4" type="video/mp4">
+    </video>
+
     <main>
         <section class="front-page">
             <h1>Sebastian Guevara</h1>
@@ -36,6 +47,9 @@
 
     <footer>
         <p>&copy; 2026 My Portfolio. All rights reserved.</p>
+        <p>Video by <a href="https://pixabay.com/users/paasadani-7541814/?utm_source=link-attribution&utm_medium=referral&utm_campaign=video&utm_content=24065">Daniel Joshua Paul</a> from <a href="https://pixabay.com//?utm_source=link-attribution&utm_medium=referral&utm_campaign=video&utm_content=24065">Pixabay</a></p>
     </footer>
+    
+    <script src="js/script.js"></script>
 </body>
 </html>
