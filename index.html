@@ -5,17 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Portfolio</title>
     <link rel="stylesheet" href="css/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
 </head>
+
 <body>
-    <header>
-        <nav>
-            <ul>
-                <li><a href="#about">About</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
 
     <!-- used copilot to figure out how to intergrate this video
      i learned that if i don't specify type the browser will load slower.
@@ -31,17 +27,75 @@
     <main>
         <section class="front-page">
             <h1>Sebastian Guevara</h1>
-            <p>Welcome to my portfolio</p>
+            <p>Incoming Software Engineer at Microsoft</p>
+
+            <!-- Here I learned that you should use class so you can reuse the css style. 
+            Since i'm making a pill button it's better to use it over i'd because I want all my pill boxes to looks the same.-->
+            <div class = "pill-buttons">
+                <a href="#about">About</a>
+                <a href="#projects">Projects</a>
+                <a href="#contact">Contact</a>
+            </div>
+
         </section>
 
         <section id="about">
             <h2>About Me</h2>
-            <p>This is a brief introduction about myself.</p>
+            <div id="about-content">
+                <img src="assets/images/headshotWebsite.png">
+                <p>I'm originally from Houston, Texas. Outside of my professional life, I love traveling, hitting the gym, playing video games, and trying new foods. 
+                    I'll be starting work full-time as a Software Engineer at Microsoft in August 2026, having previously interned there and at Amazon.</p>
+            </div>
         </section>
 
         <section id="projects">
             <h2>My Projects</h2>
-            <p>Details about your projects go here.</p>
+            <div id="project-content">
+                <a href="https://github.com/bocanadas/bocanadas.github.io.git" class="project-box">
+                    <h3>Personal Website</h3>
+                    <img src = "assets/images/projectSiteThumbnail.png">
+                </a>
+
+                <a href="none" class="project-box">
+                    <h3>Project Name</h3>
+                    <img src="assets/images/blank.jpg">
+                </a>
+
+                <a href="none" class="project-box">
+                    <h3>Project Name</h3>
+                    <img src="assets/images/blank.jpg">
+                </a>
+
+                <a href="none" class="project-box">
+                    <h3>Project Name</h3>
+                    <img src="assets/images/blank.jpg">
+                </a>
+
+                <a href="none" class="project-box">
+                    <h3>Project Name</h3>
+                    <img src="assets/images/blank.jpg">
+                </a>
+
+                <a href="none" class="project-box">
+                    <h3>Project Name</h3>
+                    <img src="assets/images/blank.jpg">
+                </a>
+            </div>
+        </section>
+
+        <section id="contact">
+            <h2>Contact Me</h2>
+            <div id="contact-links">
+                <a href="https://www.linkedin.com/in/sebastian-guevaraa/"> 
+                    <h3>LinkedIn</h3>
+                </a>
+                <a href="https://github.com/bocanadas"> 
+                    <h3>Github</h3>
+                </a>
+                <a href="mailto:sg988170@gmail.com">
+                    <h3>Email: sg988170@gmail.com</h3>
+                </a>
+            </div>
         </section>
     </main>
 
