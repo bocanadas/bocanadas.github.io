@@ -13,6 +13,10 @@ body, html {
     color: #f0f0f0;
 }
 
+body {
+    overflow-x: hidden;
+}
+
 /* Enables smooth scrolling*/
 html {
     scroll-behavior: smooth;
@@ -51,11 +55,10 @@ header nav ul li a {
     justify-content: center;
     align-items: center;
     text-align: center;
-    overflow: hidden;
 }
 
 .front-page h1 {
-    font-size: 4rem;
+    font-size: clamp(2rem, 8vw, 4rem);
     font-family: 'Alliance';
     margin: 20px;
     z-index: 2;
@@ -63,7 +66,7 @@ header nav ul li a {
 
 .front-page p {
     font-family: 'Space Grotesk';
-    font-size: 2rem;
+    font-size: clamp(1.2rem, 4vw, 2rem);
     z-index: 2;
     color: lightgrey;
 }
@@ -77,30 +80,31 @@ header nav ul li a {
 
 .pill-buttons a{
     border-radius: 9999px;
-    font-size: 1.5rem;
+    font-size: clamp(1rem, 3vw, 1.5rem);
     font-family: 'Space Grotesk';
-    background: linear-gradient(135deg, color1, color2, color3);
-    box-shadow: 
-    0 4px 15px rgba(0, 100, 255, 0.4),  /* outer glow */
-    inset 0 2px 5px rgba(255, 255, 255, 0.3);  /* inner highlight */
-    color: white;
     padding: 15px 35px;
-    text-align: center; 
+    text-align: center;
     text-decoration: none;
-    /* transition: background-color 0.3s ease; */
+    background: linear-gradient(135deg, rgba(30, 30, 50, 0.95), rgba(20, 20, 35, 0.95));
+    border: 1px solid rgba(100, 150, 255, 0.2);
+    color: white;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease;
 }
 
-.pill-button a:hover {
-    background-color: red;
+.pill-buttons a:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 48px rgba(100, 150, 255, 0.2);
+    border-color: rgba(100, 150, 255, 0.5);
 }
 
 /* Sections */
 section {
-    height: 100vh;
+    min-height: 100vh;
 }
 
 section h2 {
-    font-size: 3rem;
+    font-size: clamp(2rem, 6vw, 3rem);
 }
 
 /* About Me Section */
@@ -126,7 +130,7 @@ section h2 {
 }
 
 #about-content p{
-    font-size: 1.5rem;
+    font-size: clamp(1rem, 3vw, 1.5rem);
     font-family: 'Poppins';
     border-radius: 20px;
     text-align: left;
@@ -134,7 +138,53 @@ section h2 {
     background-color: black;
     border: 1px solid white;
     padding: 20px 30px;
-    max-width: 400px;
+    max-width: 600px;
+}
+
+/* EXPERIENCE Section */
+
+#experience {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.timeline {
+    background: rgba(20, 20, 30, 0.4);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(100, 150, 255, 0.3);
+    padding: 40px;
+    border-radius: 20px;
+    max-width: 800px;
+}
+
+.timeline-item {
+    background: linear-gradient(135deg, rgba(30, 30, 50, 0.95), rgba(20, 20, 35, 0.95));
+    border: 1px solid rgba(100, 150, 255, 0.2);
+    color: white;
+    border-radius: 15px;
+    padding: 30px;
+    margin-bottom: 30px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease;
+}
+
+.timeline-item:hover {
+    box-shadow: 0 12px 48px rgba(100, 150, 255, 0.2);
+    border-color: rgba(100, 150, 255, 0.5);
+}
+
+.timeline-item img {
+    width: 50px;
+    height: auto;
+}
+
+.company-header {
+    display: flex;
+    align-items: center;
+    gap: 15px;
 }
 
 /* Projects Section */
@@ -150,6 +200,9 @@ section h2 {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 40px;
+    max-width: 1200px;
+    padding: 0 20px;
+    margin: 0 auto;
 }
 
 .project-box {
@@ -162,7 +215,15 @@ section h2 {
 }
 
 .project-box img{
-    width: 300px; 
+    width: 300px;
+    height: auto;
+    border: 2px solid green;
+    border-radius: 20px;
+}
+
+.project-box video {
+    width: 100%;
+    max-width: 300px;
     height: auto;
     border: 2px solid green;
     border-radius: 20px;
@@ -187,12 +248,24 @@ section h2 {
 }
 
 #contact-links a {
-    background-color: white;
-    border: 2px solid green;
-    border-radius: 20px;
-    padding: 10px 15px;
+    border-radius: 50px;
+    font-size: clamp(1rem, 3vw, 1.5rem);
+    font-family: 'Space Grotesk';
+    padding: 20px 30px;
+    text-align: center;
     text-decoration: none;
-    color: black;
+    background: linear-gradient(135deg, rgba(30, 30, 50, 0.95), rgba(20, 20, 35, 0.95));
+    border: 1px solid rgba(100, 150, 255, 0.2);
+    color: white;
+    /* padding: 30px; */
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease;
+}
+
+#contact-links a:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 48px rgba(100, 150, 255, 0.2);
+    border-color: rgba(100, 150, 255, 0.5);
 }
 
 
@@ -211,6 +284,11 @@ footer {
 
 #start-vid {
     position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    object-fit: cover;
     z-index: -1;
     opacity: 1;
     transition: opacity 2s ease-in-out;
@@ -218,7 +296,82 @@ footer {
 
 #loop-vid {
     position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    object-fit: cover;
     z-index: -1;
     opacity: 0;
     transition: opacity 2s ease-in-out;
+}
+
+/* Responsive Design - Media Queries */
+
+/* Tablet and below */
+@media (max-width: 1024px) {
+    #project-content {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 30px;
+    }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+    /* Stack navigation buttons */
+    .pill-buttons {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .pill-buttons a {
+        padding: 12px 30px;
+    }
+
+    /* Stack about section */
+    #about-content {
+        flex-direction: column;
+        padding: 0 20px;
+    }
+
+    #about-content img {
+        width: 200px;
+    }
+
+    /* Single column projects */
+    #project-content {
+        grid-template-columns: 1fr;
+        gap: 30px;
+        padding: 0 20px;
+    }
+
+    .project-box img,
+    .project-box video {
+        max-width: 100%;
+    }
+
+    /* Stack contact links */
+    #contact-links {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    /* Reduce timeline padding */
+    .timeline {
+        padding: 20px;
+    }
+
+    .timeline-item {
+        padding: 20px;
+    }
+
+    /* Reduce section min-height on mobile */
+    section {
+        min-height: auto;
+        padding: 40px 0;
+    }
+
+    .front-page {
+        min-height: 100vh;
+    }
 } 
