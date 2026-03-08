@@ -1,5 +1,6 @@
 const startVideo = document.getElementById("start-vid");
 const loopVideo = document.getElementById("loop-vid");
+const topNav = document.querySelector(".top-nav");
 
 loopVideo.currentTime = 15;
 loopVideo.play();
@@ -36,4 +37,13 @@ loopVideo.addEventListener('timeupdate', function () {
         loopFading = false;  // reset the flag
     }
 });
+
+function toggleTopNavOnScroll() {
+    if (!topNav) return;
+    const shouldShow = window.scrollY > window.innerHeight * 0.85;
+    topNav.classList.toggle("visible", shouldShow);
+}
+
+window.addEventListener("scroll", toggleTopNavOnScroll, { passive: true });
+window.addEventListener("load", toggleTopNavOnScroll);
 

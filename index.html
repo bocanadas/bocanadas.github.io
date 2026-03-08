@@ -20,13 +20,22 @@
     <!-- used copilot to figure out how to intergrate this video
      i learned that if i don't specify type the browser will load slower.
      i also learned that if i didn't add the muted attribute then some browser could block my video from playing -->
-    <video id = "start-vid" autoplay loop muted>
+    <video id = "start-vid" autoplay loop muted playsinline webkit-playsinline preload="auto" poster="assets/project-posters/background-poster.png">
         <source src="assets/videos/starsmoving.mp4" type="video/mp4">
     </video>
 
-    <video id = "loop-vid" loop muted>
+    <video id = "loop-vid" autoplay loop muted playsinline webkit-playsinline preload="auto" poster="assets/project-posters/background-poster.png">
         <source src="assets/videos/starsmoving.mp4" type="video/mp4">
     </video>
+
+    <header class="top-nav" aria-label="Section Navigation">
+        <nav>
+            <a href="#about">About</a>
+            <a href="#experience">Experience</a>
+            <a href="#projects">Projects</a>
+            <a href="#contact">Contact</a>
+        </nav>
+    </header>
 
     <main>
         <section class="front-page">
@@ -47,9 +56,13 @@
         <section id="about">
             <h2>About Me</h2>
             <div id="about-content">
-                <img src="assets/images/headshotWebsite.png">
-                <p>I'm originally from Houston, Texas. Outside of my professional life, I love traveling, hitting the gym, playing video games, and trying new foods. 
-                    I'll be starting work full-time as a Software Engineer at Microsoft in August 2026, having previously interned there and at Amazon.</p>
+                <div class="about-image-shell">
+                    <img src="assets/images/headshotWebsite.png" alt="Sebastian Guevara headshot">
+                </div>
+                <div class="about-panel">
+                    <p class="about-intro">I'm originally from Houston, Texas. Outside of my professional life, I love traveling, hitting the gym, playing video games, and trying new foods.</p>
+                    <p>I'll be starting work full-time as a Software Engineer at Microsoft in August 2026, having previously interned there and at Amazon.</p>
+                </div>
             </div>
         </section>
 
@@ -102,14 +115,14 @@
 
                 <a href="https://github.com/bocanadas/crossy_roads_one_hour_challenge" class="project-box">
                     <h3>1-Hour Crossy Road Challenge</h3>
-                    <video autoplay loop muted playsinline>
+                    <video autoplay loop muted playsinline webkit-playsinline preload="metadata" poster="assets/project-posters/crossyroads-poster.png">
                         <source src="assets/videos/crossyroadgame.mp4" type="video/mp4">
                     </video>
                 </a>
 
                 <a href="https://earthquake-globe-3d.vercel.app" class="project-box">
                     <h3>Global Earthquake Monitor</h3>
-                    <video autoplay loop muted playsinline>
+                    <video autoplay loop muted playsinline webkit-playsinline preload="metadata" poster="assets/project-posters/earthquake-poster.png">
                         <source src="assets/videos/hw3-15113-portfolio.mp4" type="video/mp4">
                     </video>
                 </a>
@@ -117,14 +130,14 @@
                 <!-- remember to add href="none" back in to make the link clickable -->
                 <a href="https://bocanadas.github.io/geoguessr-frontend/" class="project-box">
                     <h3>Where in the World?</h3>
-                    <video autoplay loop muted playsinline>
+                    <video autoplay loop muted playsinline webkit-playsinline preload="metadata" poster="assets/project-posters/geoguessr-poster.png">
                         <source src="assets/videos/geoguessr.mp4" type="video/mp4">
                     </video>
                 </a>
 
                 <a href="https://office-friday-5pm.vercel.app/" class="project-box">
                     <h3>Office 3D Physics Sandbox</h3>
-                    <video autoplay loop muted playsinline>
+                    <video autoplay loop muted playsinline webkit-playsinline preload="metadata" poster="assets/project-posters/office5pm-poster.png">
                         <source src="assets/videos/office-project-portfolio.mp4" type="video/mp4">
                     </video>
                 </a>
