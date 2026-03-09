@@ -7,8 +7,8 @@
     <link rel="stylesheet" href="css/styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;700&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
 
     <link rel="icon" href="/favicon.ico" sizes="any">
     <link rel="icon" href="/favicon.svg" type="image/svg+xml">
@@ -17,33 +17,19 @@
 
 <body>
 
-    <!-- used copilot to figure out how to intergrate this video
-     i learned that if i don't specify type the browser will load slower.
-     i also learned that if i didn't add the muted attribute then some browser could block my video from playing -->
-    <video id = "start-vid" autoplay loop muted playsinline webkit-playsinline preload="auto" poster="assets/project-posters/background-poster.png">
-        <source src="assets/videos/starsmoving.mp4" type="video/mp4">
-    </video>
-
-    <video id = "loop-vid" autoplay loop muted playsinline webkit-playsinline preload="auto" poster="assets/project-posters/background-poster.png">
-        <source src="assets/videos/starsmoving.mp4" type="video/mp4">
-    </video>
-
     <header class="top-nav" aria-label="Section Navigation">
         <nav>
             <a href="#about">About</a>
             <a href="#experience">Experience</a>
             <a href="#projects">Projects</a>
             <a href="#contact">Contact</a>
+            <a href="assets/portfolio-resume.pdf" target="_blank" rel="noopener noreferrer">Resume</a>
         </nav>
     </header>
 
     <main>
         <section class="front-page">
             <h1>Sebastian Guevara</h1>
-            <p>Incoming Software Engineer at Microsoft</p>
-
-            <!-- Here I learned that you should use class so you can reuse the css style. 
-            Since i'm making a pill button it's better to use it over i'd because I want all my pill boxes to looks the same.-->
             <div class = "pill-buttons">
                 <a href="#about">About</a>
                 <a href="#experience">Experience</a>
@@ -61,7 +47,15 @@
                 </div>
                 <div class="about-panel">
                     <p class="about-intro">I'm originally from Houston, Texas. Outside of my professional life, I love traveling, hitting the gym, playing video games, and trying new foods.</p>
-                    <p>I'll be starting work full-time as a Software Engineer at Microsoft in August 2026, having previously interned there and at Amazon.</p>
+                    <p class="about-signature">I care about thoughtful engineering, shipping fast, and building products that people enjoy using.</p>
+                    <div class="about-education" aria-label="Education">
+                        <img class="education-logo" src="assets/images/cmu-logo.png" alt="Carnegie Mellon University logo">
+                        <div class="education-details">
+                            <p class="education-class-year">Class of 2026</p>
+                            <p>B.S. in Statistics and Data Science</p>
+                            <p>Minor in Human-Computer Interaction</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
@@ -108,43 +102,50 @@
         <section id="projects">
             <h2>My Projects</h2>
             <div id="project-content">
-                <a href="https://github.com/bocanadas/bocanadas.github.io.git" class="project-box">
-                    <h3>Personal Website</h3>
-                    <img src = "assets/images/projectSiteThumbnail.png">
-                </a>
-
-                <a href="https://github.com/bocanadas/crossy_roads_one_hour_challenge" class="project-box">
-                    <h3>1-Hour Crossy Road Challenge</h3>
-                    <video autoplay loop muted playsinline webkit-playsinline preload="metadata" poster="assets/project-posters/crossyroads-poster.png">
-                        <source src="assets/videos/crossyroadgame.mp4" type="video/mp4">
+                <a href="https://office-friday-5pm.vercel.app/" class="project-box">
+                    <h3>Office 3D Physics Sandbox</h3>
+                    <video loop muted playsinline webkit-playsinline poster="assets/project-posters/office5pm-poster.png">
+                        <source src="assets/videos/office-project-portfolio.mp4" type="video/mp4">
                     </video>
+                    <p class="project-summary">Browser sandbox featuring interactive 3D objects and real-time physics experimentation.</p>
                 </a>
 
                 <a href="https://earthquake-globe-3d.vercel.app" class="project-box">
                     <h3>Global Earthquake Monitor</h3>
-                    <video autoplay loop muted playsinline webkit-playsinline preload="metadata" poster="assets/project-posters/earthquake-poster.png">
+                    <video loop muted playsinline webkit-playsinline poster="assets/project-posters/earthquake-poster.png">
                         <source src="assets/videos/hw3-15113-portfolio.mp4" type="video/mp4">
                     </video>
+                    <p class="project-summary">Interactive 3D visualization of seismic events designed to make live geospatial data intuitive.</p>
+                </a>
+
+                <a href="https://bocanadas.github.io/geoguessr-frontend/" class="project-box">
+                    <h3>Where in the World?</h3>
+                    <video loop muted playsinline webkit-playsinline poster="assets/project-posters/geoguessr-poster.png">
+                        <source src="assets/videos/geoguessr.mp4" type="video/mp4">
+                    </video>
+                    <p class="project-summary">Location-based web game blending map interaction and quick decision making.</p>
+                </a>
+
+                <a href="https://github.com/bocanadas/crossy_roads_one_hour_challenge" class="project-box">
+                    <h3>1-Hour Crossy Road Challenge</h3>
+                    <video loop muted playsinline webkit-playsinline poster="assets/project-posters/crossyroads-poster.png">
+                        <source src="assets/videos/crossyroadgame.mp4" type="video/mp4">
+                    </video>
+                    <p class="project-summary">Game prototype to test iteration speed using AI.</p>
+                </a>
+
+                <a href="https://github.com/bocanadas/bocanadas.github.io.git" class="project-box">
+                    <h3>Personal Website</h3>
+                    <img src = "assets/images/projectSiteThumbnail.png">
+                    <p class="project-summary">Portfolio built with HTML/CSS/JS</p>
                 </a>
 
                 <!-- remember to add href="none" back in to make the link clickable -->
-                <a href="https://bocanadas.github.io/geoguessr-frontend/" class="project-box">
-                    <h3>Where in the World?</h3>
-                    <video autoplay loop muted playsinline webkit-playsinline preload="metadata" poster="assets/project-posters/geoguessr-poster.png">
-                        <source src="assets/videos/geoguessr.mp4" type="video/mp4">
-                    </video>
-                </a>
-
-                <a href="https://office-friday-5pm.vercel.app/" class="project-box">
-                    <h3>Office 3D Physics Sandbox</h3>
-                    <video autoplay loop muted playsinline webkit-playsinline preload="metadata" poster="assets/project-posters/office5pm-poster.png">
-                        <source src="assets/videos/office-project-portfolio.mp4" type="video/mp4">
-                    </video>
-                </a>
 
                 <a class="project-box">
-                    <h3>Project Name</h3>
+                    <h3>Coming Soon</h3>
                     <img src="assets/images/blank.jpg">
+                    <p class="project-summary">Next build currently in progress.</p>
                 </a>
             </div>
         </section>
@@ -153,21 +154,48 @@
             <h2>Contact Me</h2>
             <div id="contact-links">
                 <a href="https://www.linkedin.com/in/sebastian-guevaraa/"> 
-                    <h3>LinkedIn</h3>
+                    <h3>
+                        <span class="contact-link-content">
+                            <svg class="contact-icon" viewBox="0 0 24 24" aria-hidden="true">
+                                <path fill="currentColor" d="M4.98 3.5C4.98 4.88 3.86 6 2.48 6S0 4.88 0 3.5 1.12 1 2.48 1s2.5 1.12 2.5 2.5ZM.24 8.25H4.7V23H.24V8.25Zm7.11 0h4.26v2.01h.06c.59-1.12 2.05-2.3 4.22-2.3 4.51 0 5.34 2.97 5.34 6.84V23h-4.44v-7.2c0-1.72-.03-3.94-2.4-3.94-2.4 0-2.77 1.87-2.77 3.82V23H7.35V8.25Z"/>
+                            </svg>
+                            LinkedIn
+                        </span>
+                    </h3>
                 </a>
                 <a href="https://github.com/bocanadas"> 
-                    <h3>Github</h3>
+                    <h3>
+                        <span class="contact-link-content">
+                            <svg class="contact-icon" viewBox="0 0 24 24" aria-hidden="true">
+                                <path fill="currentColor" d="M12 .5A12 12 0 0 0 0 12.64c0 5.37 3.44 9.92 8.2 11.52.6.12.82-.27.82-.58 0-.29-.01-1.24-.02-2.25-3.34.74-4.04-1.44-4.04-1.44-.55-1.42-1.34-1.8-1.34-1.8-1.1-.77.08-.76.08-.76 1.22.09 1.86 1.28 1.86 1.28 1.08 1.9 2.84 1.35 3.53 1.03.11-.8.43-1.35.77-1.66-2.66-.31-5.47-1.36-5.47-6.03 0-1.33.46-2.41 1.22-3.26-.12-.31-.53-1.55.12-3.22 0 0 1-.33 3.3 1.25a11.3 11.3 0 0 1 6 0c2.29-1.58 3.29-1.25 3.29-1.25.66 1.67.25 2.91.13 3.22.76.85 1.22 1.93 1.22 3.26 0 4.68-2.81 5.72-5.49 6.02.44.39.82 1.14.82 2.31 0 1.67-.01 3.02-.01 3.43 0 .32.21.71.82.58A12.14 12.14 0 0 0 24 12.64 12 12 0 0 0 12 .5Z"/>
+                            </svg>
+                            GitHub
+                        </span>
+                    </h3>
                 </a>
                 <a href="mailto:sg988170@gmail.com">
-                    <h3>Email: sg988170@gmail.com</h3>
+                    <h3>
+                        <span class="contact-link-content">
+                            <svg class="contact-icon" viewBox="0 0 24 24" aria-hidden="true">
+                                <path fill="currentColor" d="M2 5.5A2.5 2.5 0 0 1 4.5 3h15A2.5 2.5 0 0 1 22 5.5v13a2.5 2.5 0 0 1-2.5 2.5h-15A2.5 2.5 0 0 1 2 18.5v-13Zm2.5-.5a.5.5 0 0 0-.31.89L12 12.1l7.81-6.21A.5.5 0 0 0 19.5 5h-15Zm15.5 2.04-6.94 5.52a1.7 1.7 0 0 1-2.12 0L4 7.04V18.5c0 .28.22.5.5.5h15a.5.5 0 0 0 .5-.5V7.04Z"/>
+                            </svg>
+                            Email
+                        </span>
+                    </h3>
+                </a>
+                <a href="assets/resume.pdf" target="_blank" rel="noopener noreferrer">
+                    <h3>
+                        <span class="contact-link-content">
+                            <svg class="contact-icon" viewBox="0 0 24 24" aria-hidden="true">
+                                <path fill="currentColor" d="M6 2.5A2.5 2.5 0 0 0 3.5 5v14A2.5 2.5 0 0 0 6 21.5h12a2.5 2.5 0 0 0 2.5-2.5V9.4a2.5 2.5 0 0 0-.73-1.77l-4.4-4.4A2.5 2.5 0 0 0 13.6 2.5H6Zm0 2h7.5v4a2 2 0 0 0 2 2h4v8.5a.5.5 0 0 1-.5.5H6a.5.5 0 0 1-.5-.5V5a.5.5 0 0 1 .5-.5Zm9.5 1.41L18.59 9H15.5V5.91Z"/>
+                            </svg>
+                            Resume
+                        </span>
+                    </h3>
                 </a>
             </div>
         </section>
     </main>
-
-    <footer>
-        <p>Video by <a href="https://pixabay.com/users/paasadani-7541814/?utm_source=link-attribution&utm_medium=referral&utm_campaign=video&utm_content=24065">Daniel Joshua Paul</a> from <a href="https://pixabay.com//?utm_source=link-attribution&utm_medium=referral&utm_campaign=video&utm_content=24065">Pixabay</a></p>
-    </footer>
     
     <script src="js/script.js"></script>
 </body>

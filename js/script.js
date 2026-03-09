@@ -1,49 +1,72 @@
-const startVideo = document.getElementById("start-vid");
-const loopVideo = document.getElementById("loop-vid");
 const topNav = document.querySelector(".top-nav");
-
-loopVideo.currentTime = 15;
-loopVideo.play();
-
-/* AI Learnings:
-- CSS transition = the instructions for how to change (smooth, 5 seconds, ease-in-out)
-- JavaScript = the command that tells it to change (from current value to new value)
-- I offset the video by 15 seconds so the replay is seamless
-*/
-
-let startFading = false;
-let loopFading = false;
-
-startVideo.addEventListener('timeupdate', function () {
-    if (startVideo.currentTime >= 25 && !startFading) {
-        startFading = true;  // flag so this doesn't run again
-        startVideo.style.opacity = 0
-        loopVideo.style.opacity = 1
-    }
-    if (startVideo.currentTime >= 29.5) {
-        startVideo.currentTime = 0
-        startFading = false;
-    }
-});
-
-loopVideo.addEventListener('timeupdate', function () {
-    if (loopVideo.currentTime >= 25 && !loopFading) {
-        startVideo.style.opacity = 1
-        loopVideo.style.opacity = 0
-        loopFading = true;
-    }
-    if (loopVideo.currentTime >= 29.5) {
-        loopVideo.currentTime = 0
-        loopFading = false;  // reset the flag
-    }
-});
+const navLinks = document.querySelectorAll(".top-nav a");
+const sections = document.querySelectorAll("main section[id]");
+const projectVideos = document.querySelectorAll("#projects video");
+const body = document.body;
 
 function toggleTopNavOnScroll() {
     if (!topNav) return;
-    const shouldShow = window.scrollY > window.innerHeight * 0.85;
+    const shouldShow = window.scrollY > window.innerHeight * 0.75;
     topNav.classList.toggle("visible", shouldShow);
 }
 
+function toggleHeroCondensed() {
+    if (!body) return;
+    const shouldCondense = window.scrollY > window.innerHeight * 0.08;
+    body.classList.toggle("hero-condensed", shouldCondense);
+}
+
+function updateActiveNavLink() {
+    let currentSectionId = "";
+    sections.forEach((section) => {
+        const rect = section.getBoundingClientRect();
+        if (rect.top <= window.innerHeight * 0.35 && rect.bottom >= window.innerHeight * 0.35) {
+            currentSectionId = section.id;
+        }
+    });
+
+    navLinks.forEach((link) => {
+        const target = link.getAttribute("href")?.replace("#", "");
+        link.classList.toggle("active", target === currentSectionId);
+    });
+}
+
+function playVideoSafely(video) {
+    const playPromise = video.play();
+    if (playPromise && typeof playPromise.catch === "function") {
+        playPromise.catch(() => {});
+    }
+}
+
+function setupProjectVideoPriority() {
+    if (!projectVideos.length) return;
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+            const video = entry.target;
+            if (entry.isIntersecting) {
+                if (video.preload !== "metadata") {
+                    video.preload = "metadata";
+                    video.load();
+                }
+                playVideoSafely(video);
+            } else {
+                video.pause();
+            }
+        });
+    }, { threshold: 0.45 });
+
+    projectVideos.forEach((video) => {
+        observer.observe(video);
+        video.addEventListener("mouseenter", () => playVideoSafely(video));
+    });
+}
+
 window.addEventListener("scroll", toggleTopNavOnScroll, { passive: true });
+window.addEventListener("scroll", updateActiveNavLink, { passive: true });
+window.addEventListener("scroll", toggleHeroCondensed, { passive: true });
 window.addEventListener("load", toggleTopNavOnScroll);
+window.addEventListener("load", updateActiveNavLink);
+window.addEventListener("load", setupProjectVideoPriority);
+window.addEventListener("load", toggleHeroCondensed);
 
