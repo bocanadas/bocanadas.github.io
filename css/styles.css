@@ -408,8 +408,29 @@ body.hero-condensed .front-page {
     transform: translateY(-1px);
 }
 
+.site-footer {
+    width: min(var(--max), calc(100% - 4rem));
+    margin: 0 auto;
+    padding: 1.75rem 1rem 2.75rem;
+    text-align: center;
+}
+
+.site-footer-copy {
+    margin: 0;
+    font-family: 'Manrope', sans-serif;
+    font-size: 0.88rem;
+    font-weight: 400;
+    line-height: 1.5;
+    letter-spacing: 0.01em;
+    color: var(--ink-soft);
+}
+
 @media (max-width: 1024px) {
     section {
+        width: min(var(--max), calc(100% - 2.2rem));
+    }
+
+    .site-footer {
         width: min(var(--max), calc(100% - 2.2rem));
     }
 
@@ -436,6 +457,10 @@ body.hero-condensed .front-page {
         width: calc(100% - 1.25rem);
         padding: 1.35rem;
         margin-bottom: 0.9rem;
+    }
+
+    .site-footer {
+        width: calc(100% - 1.25rem);
     }
 
     body.hero-condensed .front-page {
